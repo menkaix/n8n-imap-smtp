@@ -37,8 +37,8 @@ The n8n GUI only accepts npm package names — to install directly from this Git
 mkdir -p ~/.n8n/nodes
 cd ~/.n8n/nodes
 
-# Install from GitHub
-npm install git+https://github.com/mendrika261/n8n-imap-smtp.git
+# Install from GitHub (tarball — no SSH key required)
+npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz
 
 # Restart n8n
 ```
@@ -49,26 +49,24 @@ npm install git+https://github.com/mendrika261/n8n-imap-smtp.git
 # Open a shell in the running container
 docker exec -it <container_name> sh
 
-# Install from GitHub
 mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
-npm install git+https://github.com/mendrika261/n8n-imap-smtp.git
+npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz
 
-# Exit and restart the container
 exit
 docker restart <container_name>
 ```
 
 #### Docker Compose
 
-Add the installation step to your `docker-compose.yml` entrypoint, or run it once manually:
-
 ```bash
 docker compose exec n8n sh -c \
-  "mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes && npm install git+https://github.com/mendrika261/n8n-imap-smtp.git"
+  "mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes && npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz"
 docker compose restart n8n
 ```
 
-> **Tip:** To install a specific branch or tag, append `#branch-name` to the URL, e.g. `npm install git+https://github.com/mendrika261/n8n-imap-smtp.git#main`
+> **Why tarball and not `git+https://`?** Some environments (including the default n8n Docker image) have a git configuration that rewrites HTTPS GitHub URLs to SSH, causing a `Permission denied (publickey)` error. Installing via the `.tar.gz` tarball URL bypasses git entirely.
+>
+> **To install a specific branch or tag**, replace `main` with the branch/tag name in the URL, e.g. `.../archive/refs/heads/develop.tar.gz` or `.../archive/refs/tags/v1.0.0.tar.gz`.
 
 ### Manual build (from source)
 
