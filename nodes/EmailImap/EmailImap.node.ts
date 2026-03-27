@@ -1,6 +1,7 @@
 import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
+	IDataObject,
 	IExecuteFunctions,
 	INodeCredentialTestResult,
 	INodeExecutionData,
@@ -72,7 +73,7 @@ async function opGetMessages(
 	try {
 		const searchCriteria = onlyUnread ? { seen: false } : {};
 		const uids = await client.search(searchCriteria, { uid: true });
-		const limitedUids = uids.slice(-limit);
+		const limitedUids = (uids || []).slice(-limit);
 
 		if (limitedUids.length === 0) return [];
 
@@ -264,7 +265,7 @@ export class EmailImap implements INodeType {
 		displayName: 'Email (IMAP/SMTP)',
 		name: 'emailImap',
 		icon: 'file:email.svg',
-		group: ['communication'],
+		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',
 		description: 'Fetch, read, mark, delete, and send emails via IMAP and SMTP',
@@ -620,7 +621,7 @@ export class EmailImap implements INodeType {
 					}
 
 					for (const json of results) {
-						returnData.push({ json, pairedItem: i });
+						returnData.push({ json: json as IDataObject, pairedItem: i });
 					}
 				} catch (error) {
 					if (this.continueOnFail()) {

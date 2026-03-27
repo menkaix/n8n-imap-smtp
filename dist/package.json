@@ -1,0 +1,60 @@
+{
+    "name": "n8n-nodes-imap-smtp",
+    "version": "0.1.0",
+    "description": "n8n community node for reading and sending emails via IMAP and SMTP",
+    "license": "MIT",
+    "homepage": "https://github.com/menkaix/n8n-imap-smtp",
+    "keywords": [
+        "n8n-community-node-package",
+        "imap",
+        "smtp",
+        "email"
+    ],
+    "author": {
+        "name": "",
+        "email": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/menkaix/n8n-imap-smtp.git"
+    },
+    "scripts": {
+        "build": "n8n-node build",
+        "dev": "n8n-node dev",
+        "lint": "n8n-node lint",
+        "lint:fix": "n8n-node lint --fix",
+        "release": "n8n-node release",
+        "prepublishOnly": "n8n-node prerelease"
+    },
+    "files": [
+        "dist"
+    ],
+    "n8n": {
+        "n8nNodesApiVersion": 1,
+        "credentials": [
+            "dist/credentials/ImapCredentials.credentials.js",
+            "dist/credentials/SmtpCredentials.credentials.js"
+        ],
+        "nodes": [
+            "dist/nodes/EmailImap/EmailImap.node.js"
+        ]
+    },
+    "dependencies": {
+        "imapflow": "^1.0.169",
+        "mailparser": "^3.7.2",
+        "nodemailer": "^6.9.16"
+    },
+    "devDependencies": {
+        "@n8n/node-cli": "*",
+        "@types/mailparser": "^3.4.4",
+        "@types/node": "^25.5.0",
+        "@types/nodemailer": "^6.4.17",
+        "eslint": "9.39.4",
+        "n8n-workflow": "^2.13.1",
+        "prettier": "3.8.1",
+        "typescript": "5.9.3"
+    },
+    "peerDependencies": {
+        "n8n-workflow": "*"
+    }
+}
