@@ -19,12 +19,10 @@
         "url": "https://github.com/menkaix/n8n-imap-smtp.git"
     },
     "scripts": {
-        "build": "n8n-node build",
-        "dev": "n8n-node dev",
-        "lint": "n8n-node lint",
-        "lint:fix": "n8n-node lint --fix",
-        "release": "n8n-node release",
-        "prepublishOnly": "n8n-node prerelease"
+        "build": "tsc && node -e \"require('fs').cpSync('nodes/EmailImap/email.svg','dist/nodes/EmailImap/email.svg')\"",
+        "dev": "tsc --watch",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "files": [
         "dist"
