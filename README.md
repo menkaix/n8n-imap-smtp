@@ -38,7 +38,7 @@ mkdir -p ~/.n8n/nodes
 cd ~/.n8n/nodes
 
 # Install from GitHub (tarball — no SSH key required)
-npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz
+npm install https://github.com/menkaix/n8n-imap-smtp/archive/refs/heads/main.tar.gz
 
 # Restart n8n
 ```
@@ -50,7 +50,7 @@ npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main
 docker exec -it <container_name> sh
 
 mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
-npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz
+npm install https://github.com/menkaix/n8n-imap-smtp/archive/refs/heads/main.tar.gz
 
 exit
 docker restart <container_name>
@@ -60,7 +60,7 @@ docker restart <container_name>
 
 ```bash
 docker compose exec n8n sh -c \
-  "mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes && npm install https://github.com/mendrika261/n8n-imap-smtp/archive/refs/heads/main.tar.gz"
+  "mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes && npm install https://github.com/menkaix/n8n-imap-smtp/archive/refs/heads/main.tar.gz"
 docker compose restart n8n
 ```
 
@@ -71,7 +71,7 @@ docker compose restart n8n
 ### Manual build (from source)
 
 ```bash
-git clone https://github.com/mendrika261/n8n-imap-smtp.git
+git clone https://github.com/menkaix/n8n-imap-smtp.git
 cd n8n-imap-smtp
 npm install
 npm run build

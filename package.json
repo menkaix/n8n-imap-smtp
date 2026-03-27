@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "n8n community node for reading and sending emails via IMAP and SMTP",
 	"license": "MIT",
-	"homepage": "https://github.com/mendrika261/n8n-imap-smtp",
+	"homepage": "https://github.com/menkaix/n8n-imap-smtp",
 	"keywords": [
 		"n8n-community-node-package",
 		"imap",
@@ -16,7 +16,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mendrika261/n8n-imap-smtp.git"
+		"url": "https://github.com/menkaix/n8n-imap-smtp.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
